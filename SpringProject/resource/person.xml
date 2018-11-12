@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="
+ http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <bean id="addressBean1" class="com.capg.trg.model.Address">
+ 	<constructor-arg index="0" value="3/4/156"/>
+ 	<constructor-arg index="1" value="kings Street"/>
+ 	<constructor-arg index="2" value="Hyderabad"/>
+ 	<constructor-arg index="3" value="59999"/>	
+ </bean>
+ 
+ <bean id="addressBean2" class="com.capg.trg.model.Address">
+ 	<property name="houseNumber" value="8-9/156"/>
+ 	<property name="street" value="James Street"/>
+ 	<property name="city" value="Secunderabad"/>
+ 	<property name="zipCode" value="500009"/>	
+ </bean>
+ <!-- wiring address bean into person bean using ref attribute -->
+ <bean id="personBean" class="com.capg.trg.model.Person">
+ 	<property name="adharCardNumber" value="123456789012"/>
+ 	<property name="name" value="Smith"/>
+ 	<property name="residentialAddress" ref="addressBean1"/>
+ 	<property name="permanentAddress" ref="addressBean2"/>	
+ </bean>
+ 
+ 
+ 
+ </beans>

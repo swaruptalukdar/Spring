@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="
+ http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <bean id="helloWorldBean" class="com.capg.trg.model.HelloWorld"></bean>
+ 
+ <!-- Setter injection -->
+ <bean id="convertorBean1" class="com.capg.trg.model.CurrencyConvertorImpl">
+		 <property name="exchangeRate" value="72.73"></property>
+ </bean>
+ 
+ <!-- Constructor Injection -->
+ <bean id="convertorBean2" class="com.capg.trg.model.CurrencyConvertorImpl">
+ 		<!--  <constructor-arg index="0" value="72.90"/> -->
+ 		 <constructor-arg name="exchangeRate" value="67.55"></constructor-arg>
+ </bean>
+ 
+ <bean id="countryBean" class="com.capg.trg.model.Country">
+ 	<property name="countryList">
+		<list>
+			<value>India</value>
+			<value>Srilanka</value>
+			<value>USA</value>
+			<value>India</value>
+		</list> 
+	</property>
+	<property name="countrySet">
+		<set>
+			<value>India</value>
+			<value>Srilanka</value>
+			<value>USA</value>
+			<value>India</value>
+		</set> 
+	</property>	
+	<property name="countryMap">
+		<map>
+			<entry key="India" value="New Delhi"/>
+			<entry key="Srilanka" value="Colombo"/>
+			<entry key="USA" value="Washington DC"></entry>
+			<entry key="India" value="Delhi"/>
+		</map> 
+	</property>	
+ 	
+ </bean>
+ 
+ </beans>
